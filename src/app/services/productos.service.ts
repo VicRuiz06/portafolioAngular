@@ -17,14 +17,15 @@ export class ProductosService {
 
   	this.http.get('https://angular-html-26860.firebaseio.com/productos_idx.json')
   	.subscribe((resp: Producto[]) =>{
-  		console.log(resp);
   		this.productos = resp;
-
   		setTimeout(() => {
   		this.cargando = false;
 
   		}, 2000);
   	});
+  }
+  getProducto( id: string){
+   return this.http.get(`https://angular-html-26860.firebaseio.com/productos/${id}.json`);
 
   }
 }
